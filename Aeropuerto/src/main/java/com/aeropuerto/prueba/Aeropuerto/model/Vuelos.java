@@ -12,18 +12,19 @@ public class Vuelos {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String airline;
-        private Date time;
+        private String time;
         private String fromvuelo;
-        private int FlightNo;
+        private int flightNo;
         private String remarks;
         private String tovuelo;
-        private Double gate;
+        private String gate;
+        private boolean published;
 
         @Column(name = "create_at")
         @Temporal(TemporalType.TIMESTAMP)
         private Date createAt;
 
-        private char typeVuelo;
+        private String typeVuelo;
 
         @PrePersist
         public void prePersist() {
@@ -46,11 +47,11 @@ public class Vuelos {
                 this.airline = airline;
         }
 
-        public Date getTime() {
+        public String getTime() {
                 return time;
         }
 
-        public void setTime(Date time) {
+        public void setTime(String time) {
                 this.time = time;
         }
 
@@ -63,11 +64,11 @@ public class Vuelos {
         }
 
         public int getFlightNo() {
-                return FlightNo;
+                return flightNo;
         }
 
         public void setFlightNo(int flightNo) {
-                FlightNo = flightNo;
+                flightNo = flightNo;
         }
 
         public String getRemarks() {
@@ -86,11 +87,11 @@ public class Vuelos {
                 this.tovuelo = tovuelo;
         }
 
-        public Double getGate() {
+        public String getGate() {
                 return gate;
         }
 
-        public void setGate(Double gate) {
+        public void setGate(String gate) {
                 this.gate = gate;
         }
 
@@ -102,11 +103,19 @@ public class Vuelos {
                 this.createAt = createAt;
         }
 
-        public char getTypeVuelo() {
+        public String getTypeVuelo() {
                 return typeVuelo;
         }
 
-        public void setTypeVuelo(char typeVuelo) {
+        public void setTypeVuelo(String typeVuelo) {
                 this.typeVuelo = typeVuelo;
+        }
+
+        public boolean isPublished() {
+                return published;
+        }
+
+        public void setPublished(boolean published) {
+                this.published = published;
         }
 }
